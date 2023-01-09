@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./img/logo_small.png">
+    <link rel="stylesheet" type="text/css" href="./css/base.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"> </script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../js/con-metamask.js"> </script>
+    <script type="text/javascript" src="../js/Display.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+
+</head>
+
+<body>
+<div id="result"></div>
+<div style="background: linear-gradient(#38bb4907, #3879f37c)">
+    <div class=main_back>
+        <input type="text" class="form-control" placeholder="请输入用户名" autofocus="" name="username" id="username"/>
+        <div onclick="createurl()" class="create_css">生成邀请链接</div>
+        <a id="invicode" class="invicode_css"></a>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    function createurl() {
+         $.ajax({
+             type: "get",
+             url: "https://m.motorn.io/api/getKolLink?user="+$("#username").val(),
+             dataType: "json",
+             success: function (data) {
+                 if (data.code == 0) {
+                     document.getElementById("invicode").innerHTML=data.data;
+                 } else {
+                     alert("错误信息："+data.code+"."+data.data);
+                 }
+             },
+             error: function () {
+                 alert('网络异常');
+             }
+         })
+    }
+    /*]]>*/
+</script>
+
+</html>
