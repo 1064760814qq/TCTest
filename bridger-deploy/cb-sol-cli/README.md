@@ -38,7 +38,8 @@ There are multiple subcommands provided:
 - [`erc721`](docs/erc721.md): Interactions with ERC721 contracts and handler
 - [`multisig`](docs/multisig.md): Interactions Multi-sig for administrating owners and threshold
 
-Run script
-
+## Run script
+```
 cb-sol-cli init --all 
+```
 cb-sol-cli initDes --all
