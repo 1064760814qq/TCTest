@@ -41,5 +41,5 @@ There are multiple subcommands provided:
 ## Run script
 ```
 cb-sol-cli init --all 
-```
+
 cb-sol-cli initDes --all
